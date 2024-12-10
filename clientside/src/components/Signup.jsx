@@ -7,7 +7,8 @@ const Signup = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
-    email:"",
+    email: localStorage.getItem("email") || "",
+    phone:"",
     pwd: "",
     cpwd: "",
   });
@@ -55,13 +56,13 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label>E-mail</label>
+            <label>Phone</label>
             <input
-              type="email"
-              name="email"
-              value={formData.email}
+              type="text"
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
-              placeholder="Enter your email"
+              placeholder="Enter your phone no"
               required
             />
           </div>

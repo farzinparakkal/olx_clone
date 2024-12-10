@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios'
 
 const Login = () => {
@@ -73,7 +73,7 @@ const Login = () => {
             Forgot Password?
           </Link>
           <span className="separator">|</span>
-          <Link to={"/verify"} className="signup-link">
+          <Link to={"/verifyEmail"} className="signup-link">
             Sign Up
           </Link>
         </div>

@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+  
+  .body-profile {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dark gradient background */
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr; /* Larger sections */
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+  }
+  
+  form .form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .left-side {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #333;
+    border-radius: 10px;
+    height: 550px;
+  }
+  
+  .left-side .image {
+    width: 150px; /* Larger profile picture */
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 3px solid white;
+  }
+  
+  .left-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .left-side div {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 5px 0;
+  }
+  
+  .left-side button {
+    width: 150px;
+    margin-top: 15px;
+    padding: 10px;
+    /* background: linear-gradient(135deg, #0ce44a, #7e80ff); */
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .create-btn,.edit-btn{
+    background: linear-gradient(135deg, #0ce44a, #7e80ff);
+  }
+  
+  .delete-btn{
+    background: linear-gradient(135deg, #e40c0c, #7e80ff);
+  }
+  
+  .left-side button:hover {
+    transform: scale(1.1);
+  }
+  
+  .right-side {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Positioning for "Add Post" button */
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    border-left: 5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    height: 550px;
+  }
+  .sell-btn{
+    text-align: right;
+    padding: 20px 0px;
+  }
+  
+  .right-side h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .right-side .sell-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #67b26f, #4ca2cd); /* Unique button gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .right-side .sell-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .right-side .post-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .right-post-card{
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+  }
+  
+  .post-container .post-card {
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .post-container .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  .post-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .post-image{
+    width: 400px;
+    height: 275px;
+  }
+  
+  .post-container button {
+    display: block;
+    margin: 15px auto; /* Centering "View" button */
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #f093fb, #f5576c); /* Unique button gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .show-post-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .post-container button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #ff6a95, #ff8e92);
+  }
+  
+  
+  
+  
+  
+  
+  /* * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    .left-side,
+    .right-side {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid #ddd;
+    }
+    
+    
+    .right-side {
+      border-right: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #555;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .left-side .image {
+      height: 100px;
+      width: 100px;
+      background-color: #007bff;
+      border-radius: 50%;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  
+    .left-side img{
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+    }
+    
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 10px 0;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #00b342;
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    button{
+      width: 100px;
+    }
+    
+    div {
+      margin-bottom: 10px;
+    }
+    
+    .left-side > form > .form-group div {
+      margin-bottom: 10px;
+    }
+    
+    .left-side div {
+      text-align: center;
+      font-size: 1rem;
+      color: #444;
+    }
+    
+    .left-side div span {
+      font-weight: bold;
+    }
+    
+    .post-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+     */
