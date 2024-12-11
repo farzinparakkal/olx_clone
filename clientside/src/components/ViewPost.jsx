@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./ViewUserPost.css";
 
-const ViewUserPost = () => {
+const ViewPost = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
@@ -24,28 +24,7 @@ const ViewUserPost = () => {
       console.error(error);
       navigate("/profile");
     }
-  };
-
-  const deletePost = async () => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this post?");
-    if (!confirmDelete) return;
-  
-    try {
-      const res = await axios.delete(`http://localhost:3002/api/deletePost/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.status === 200) {
-        alert(res.data.msg);
-        navigate("/profile");
-      } else {
-        alert("Failed to delete post.");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("An error occurred. Try again.");
-    }
-  };
-  
+  }
 
   useEffect(() => {
     fetchPost();
@@ -85,12 +64,8 @@ const ViewUserPost = () => {
           </div>
         </div>
       </div>
-      <div className="post-actions">
-        <button className="edit-post-btn" onClick={() => navigate(`/editPost/${id}`)}>Edit</button>
-        <button className="delete-post-btn" onClick={deletePost}>Delete</button>
-      </div>
     </div>
   );
 };
 
-export default ViewUserPost
+export default ViewPost

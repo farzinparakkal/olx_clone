@@ -83,18 +83,18 @@ const EditUserData = () => {
       <form className="edit-data-form" onSubmit={handleSubmit}>
         <h2>Edit Your Details</h2>
         <div className="form-group">
-          <label htmlFor="nickname">Nickname</label>
+          <label htmlFor="nickname">District</label>
           <input
             type="text"
             id="district"
             name="district"
-            value={formData.distrplace}
+            value={formData.district}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="dob">Date of Birth</label>
+          <label htmlFor="dob">Place</label>
           <input
             type="text"
             id="place"
@@ -105,7 +105,7 @@ const EditUserData = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="note">Note</label>
+          <label htmlFor="note">PIN</label>
           <input
             type="text"
             id="pin"

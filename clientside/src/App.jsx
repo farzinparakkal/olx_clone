@@ -11,14 +11,16 @@ import ViewUserPost from "./components/ViewUserPost"
 import EditPost from "./components/EditPost"
 import AddUserData from './components/AddUserData'
 import EditUserData from "./components/EditUserData"
+import ViewPost from "./components/ViewPost"
 
 function App() {
   const [user, setUser] = useState("")
+  const [filter,setFilter]=useState("")
   return(
     <BrowserRouter>
-    {user&& <Nav user={user}/>}
+    {user&& <Nav user={user} setFilter={setFilter}/>}
     <Routes>
-    <Route path="/" element={<Home setUser={setUser}/>}></Route>
+    <Route path="/" element={<Home setUser={setUser} filter={filter}/>}></Route>
     <Route path="/login" element={<Login />}></Route>
     <Route path="/signup" element={<Signup />}></Route>
     <Route path="/verifyEmail" element={<VerifyEmail />}></Route>
@@ -27,6 +29,7 @@ function App() {
     <Route path="/editUserData" element={<EditUserData />}></Route>
     <Route path="/sellPost" element={<SellPost />}></Route>
     <Route path="/viewUserPost/:id" element={<ViewUserPost />}></Route>
+    <Route path="/viewPost/:id" element={<ViewPost />}></Route>
     <Route path="/editPost/:id" element={<EditPost />}></Route>
     </Routes>
     </BrowserRouter>

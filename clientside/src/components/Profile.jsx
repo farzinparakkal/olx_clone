@@ -52,7 +52,10 @@ const Profile = () => {
   }, []);
 
   const handleClick = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    const confirmDelete = window.confirm("Are you sure you want to delete this post?");
+    if (!confirmDelete) return;
+    
     if (!token) {
       navigate("/login");
     } else {

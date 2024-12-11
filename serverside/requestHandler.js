@@ -120,8 +120,10 @@ export async function editUserData(req, res) {
 
   export async function deleteUser(req, res) {
     try {
+      console.log(req.user.UserID);
+      
+      await postSchema.deleteMany({userId:req.user.UserID})
       await userDataSchema.deleteOne({userId:req.user.UserID})
-      await postSchema.delete({userId:req.user.UserID})
       await userSchema.deleteOne({ _id: req.user.UserID })
       res.status(200).send({ msg: "Data deleted successfully!"})
     } catch (error) {

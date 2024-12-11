@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import './Nav.css'
+import logo from '../assets/olx_logo.png'
 
-const Nav = ({user}) => {
+const Nav = ({user,setFilter}) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
   const navigate = useNavigate()
 
@@ -34,7 +35,7 @@ const Nav = ({user}) => {
     <nav className="navbar">
       {/* Left Section */}
       <div className="nav-left">
-        <img src="logo.png" alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="logo" />
         <select className="location-dropdown">
           <option value="india">India</option>
           <option value="usa">USA</option>
@@ -48,6 +49,7 @@ const Nav = ({user}) => {
           type="text"
           className="search-input"
           placeholder="Find Cars, Mobile Phones and more..."
+          onChange={(e) => setFilter(e.target.value)}
         />
         <button className="search-button">
           <i className="search-icon">&#128269;</i>
@@ -73,9 +75,11 @@ const Nav = ({user}) => {
             </div>
           )}
         </div>
+        <Link to={"/sellPost"}>
         <button className="sell-button">
       + SELL
     </button>
+    </Link>
       </div>
     </nav>
   );
