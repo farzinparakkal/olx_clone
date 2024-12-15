@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import './SellPost.css'
+import './SellPost.scss'
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
-import './Nav.css'
+import './Nav.scss'
 import logo from '../assets/olx_logo.png'
 
-const Nav = ({user,setFilter}) => {
+const Nav = ({user,setFilter,setName,filter}) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
   const navigate = useNavigate()
 
@@ -25,6 +25,11 @@ const Nav = ({user,setFilter}) => {
     }
   }, [])
 
+  const handleChange=(e)=>{
+    const value=e.target.value
+    setFilter(value === "all"?"":value)
+  }
+
   const handleLogout = () => {
     localStorage.removeItem("token")
     alert("Logout Successfully")
@@ -36,10 +41,12 @@ const Nav = ({user,setFilter}) => {
       {/* Left Section */}
       <div className="nav-left">
         <img src={logo} alt="Logo" className="logo" />
-        <select className="location-dropdown">
-          <option value="india">India</option>
-          <option value="usa">USA</option>
-          <option value="uk">UK</option>
+        <select className="location-dropdown" value={filter} onChange={handleChange}>
+          <option value="all">All</option>
+          <option value="car">Car</option>
+          <option value="bike">Bike</option>
+          <option value="electronics">Electronics</option>
+          <option value="pet">Pet</option>
         </select>
       </div>
 
@@ -49,7 +56,7 @@ const Nav = ({user,setFilter}) => {
           type="text"
           className="search-input"
           placeholder="Find Cars, Mobile Phones and more..."
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
         <button className="search-button">
           <i className="search-icon">&#128269;</i>
@@ -69,6 +76,7 @@ const Nav = ({user,setFilter}) => {
           {isDropdownVisible && (
             <div className="dropdown-content">
               <a href="/profile">Profile</a>
+              <a href="/enqPage">Enquiries</a>
               <a onClick={handleLogout} style={{ cursor: "pointer" }}>
                 Logout
               </a>

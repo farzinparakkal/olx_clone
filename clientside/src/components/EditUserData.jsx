@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./EditUserData.css";
+import "./EditUserData.scss";
 
 const EditUserData = () => {
   const navigate = useNavigate();

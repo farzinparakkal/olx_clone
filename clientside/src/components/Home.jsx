@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import "./Home.css";
+import "./Home.scss";
 
-const Home = ({ setUser, filter }) => {
+const Home = ({ setUser, filter,name }) => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const token = localStorage.getItem("token");
@@ -56,11 +56,11 @@ const Home = ({ setUser, filter }) => {
           ) : (
             posts
               .filter((i) =>
-                i.category.toLowerCase().includes(filter.toLowerCase())
-              )
-              .map((post) => (
-                <Link to={`/viewPost/${post._id}`}>
-                  <div key={post._id} className="post-card">
+                i.category?.toLowerCase().includes(filter?.toLowerCase() || ""))
+              .filter((i)=>i.title?.toLowerCase().includes(name?.toLowerCase() || ""))
+              .map((post,i) => (
+                <Link key={i} to={`/viewPost/${post._id}`}>
+                  <div  className="post-card">
                     {post.images && post.images.length > 0 && (
                       <img
                         src={post.images[0]}

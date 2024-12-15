@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import "./ViewUserPost.css";
+import "./ViewUserPost.scss";
 
 const ViewPost = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token")
 
   const fetchPost = async () => {
     try {
@@ -16,6 +16,7 @@ const ViewPost = () => {
       })
       if (res.status === 200) {
         setPost(res.data.post);
+        
       } else {
         alert("Failed to fetch post data.");
         navigate("/profile");
@@ -29,6 +30,13 @@ const ViewPost = () => {
   useEffect(() => {
     fetchPost();
   }, []);
+
+  const enqbtn=()=>{
+    localStorage.setItem('productId',post._id)
+    localStorage.setItem('price',post.price)
+    localStorage.setItem('sellerId',post.userId)
+    navigate(`/enqPost`)
+  }
 
   if (!post) return <div>Loading...</div>;
 
@@ -63,6 +71,9 @@ const ViewPost = () => {
           </p>
           </div>
         </div>
+      </div>
+      <div className="post-actions">
+        <button className="edit-post-btn" onClick={enqbtn}>EnQuiry</button>
       </div>
     </div>
   );
